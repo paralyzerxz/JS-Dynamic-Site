@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ateliê Elemental — Forje cores místicas no ateliê do Mago. Clique na runa ou pressione Espaço."
+    />
+    <title>Ateliê Elemental</title>
+
+    <!-- Google Fonts: Cinzel (serifada antiga) + IM Fell (manuscrito) + Fira Mono (hex) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=IM+Fell+English:ital@0;1&family=Fira+Mono:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Canvas de fundo para a animação de "tinta se espalhando" -->
+    <canvas id="canvas-ink"></canvas>
+
+    <!-- Canvas para partículas elementais -->
+    <canvas id="canvas-particles"></canvas>
+
+    <!-- Contêiner principal — o "Livro de Feitiços" -->
+    <div class="spellbook" id="spellbook">
+      <!-- Ornamentos de canto do livro -->
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+
+      <!-- Título do Ateliê -->
+      <h1 class="titulo-atelie">Ateliê Elemental</h1>
+
+      <!-- Separador ornamental -->
+      <div class="separador">
+        <span class="ornamento">✦</span>
+        <div class="linha-sep"></div>
+        <span class="ornamento">✦</span>
+      </div>
+
+      <!-- Label: "Essência Forjada" -->
+      <p class="label-essencia">Essência Forjada</p>
+
+      <!-- Nome alquímico da cor -->
+      <p class="nome-alcimico" id="nome-cor">—</p>
+
+      <!-- Bloco do código hex — flutuante, como vapor elemental -->
+      <div class="hex-wrapper">
+        <span id="hex-cor" class="hex-cor" title="Clique para copiar o código">
+          #000000
+        </span>
+        <!-- Tooltip "Copiado!" -->
+        <div id="tooltip" class="tooltip oculto">⚗ Copiado!</div>
+      </div>
+
+      <!-- Dica de cópia -->
+      <p class="dica">Toque no código para transcrever</p>
+
+      <!-- Botão Runa — circular, bronze, com cristal -->
+      <div class="btn-wrapper">
+        <button
+          id="btn-gerar"
+          class="btn-runa"
+          title="Forjar nova cor (Espaço)"
+        >
+          <!-- SVG: Símbolo de Anemo (vento/espiral) -->
+          <svg
+            class="runa-svg"
+            viewBox="0 0 60 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle class="runa-anel" cx="30" cy="30" r="26" stroke-width="2" />
+            <!-- Runa espiral elemental -->
+            <path
+              class="runa-path"
+              d="M30 14 C30 14, 44 20, 44 30 C44 40, 34 44, 30 44
+                 C26 44, 18 40, 18 34 C18 28, 24 24, 28 26
+                 C32 28, 34 32, 32 34 C30 36, 27 35, 27 33"
+              stroke-width="2"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <!-- Cristal central -->
+            <circle class="cristal" cx="30" cy="30" r="5" />
+          </svg>
+          <div class="btn-glow"></div>
+        </button>
+        <p class="atalho">ou pressione <kbd>Espaço</kbd></p>
+      </div>
+    </div>
+    <!-- /spellbook -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
